@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>hiskihar</title>
     <link rel="stylesheet" href="styles.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -16,231 +16,47 @@
 
 
     <div class="main column">
-        <div class="mask">
-        <div class="main-element row" id="hero">
-            <div class="image-container" id="image">
-                <img src="hiskihar.jpg" />
+        <div id="hero">
+            <div class="main-element row" id="hero-row-1">
+                <div class="image-container" id="image">
+                    <img src="hiskihar.jpg" />
+                </div>
+                <h1 class="h1 slide-in" id="hero-f-name-1">HISKI</h1>
+                <h1 class="h1 slide-in" id="hero-s-name-1">HARKONEN</h1>
             </div>
-            <h1 class="h1 slide-in" id="title-1-1-1">HISKI</h1>
-            <h1 class="h1 slide-in" id="title-1-1-2">HARKONEN</h1>
-        </div>
-        <div class="main-element row" id="second">
-            <h1 class="h1 slide-in" id="title-1-2-1">HISKI</h1>
-            <h1 class="h1 slide-in" id="title-1-2-2">HARKONEN</h1>
-        </div>
-        </div>
-        <div class="main-element row" id="third">
-            <p class="paragraph">
-                But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-            </p>
-        </div>
-        <div class="main-element row" id="fourth">
-            <div class="subtractive">
-                <h2 class="subtractive r">
-                    hiskihar
-                </h2>
-                <h2 class="subtractive g">
-                    hiskihar
-                </h2>
-                <h2 class="subtractive b">
-                    hiskihar
-                </h2>
+            <div class="main-element row" id="hero-row-2">
+                <h1 class="h1 slide-in" id="hero-f-name-2">HISKI</h1>
+                <h1 class="h1 slide-in" id="hero-s-name-2">HARKONEN</h1>
             </div>
         </div>
-        <div class="main-element" id="fifth">
-
-
-
-
-            <svg width="1024" height="1024" xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                <defs>
-                    <filter id="displacementFilter" x="0" y="0" width="1024" height="1024" color-interpolation-filters="sRGB">
-                        <!-- Base fill: neutral gray (no displacement) -->
-                        <feFlood flood-color="rgb(127,127,127)" result="base" />
-                        <feComposite in="base" in2="SourceAlpha" operator="in" result="flooded" />
-
-                        <!-- Your displacement image on top -->
-                        <feImage href="disp_map.png" result="dispImage" x="256" y="256" width="512" height="512" preserveAspectRatio="none" />
-                        <feComposite in="dispImage" in2="flooded" operator="over" result="displacementMap" />
-
-                        <feDisplacementMap
-                                in="SourceGraphic"
-                                in2="displacementMap"
-                                scale="200"
-                                xChannelSelector="R"
-                                yChannelSelector="G" />
-
-                    </filter>
-
-
-
-
-
-
-
-                    <filter id="blur" x="0" y="0" width="1024" height="1024" color-interpolation-filters="sRGB">
-
-                        <!-- 1. Blur the original image -->
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blurredDisplaced" />
-
-                        <!-- 2. Load blur mask -->
-                        <feImage href="disp_mask.png" x="0" y="0" width="1024" height="1024" result="mask" />
-
-                        <!-- 3. Convert mask to alpha -->
-                        <feColorMatrix in="mask" type="luminanceToAlpha" result="alphaMask" />
-
-                        <!-- 4. Mask the blurred result -->
-                        <feComposite in="blurredDisplaced" in2="alphaMask" operator="in" result="blurOnly" />
-
-                        <!-- 5. Composite over the original image -->
-                        <feComposite in="blurOnly" in2="SourceGraphic" operator="over" />
-
-                    </filter>
-
-
-
-
-
-
-
-
-                    <filter id="displacementAndBlur" x="0" y="0" width="1024" height="1024" color-interpolation-filters="sRGB">
-
-                        <!-- Base fill: neutral gray (no displacement) -->
-                        <feFlood flood-color="rgb(127,127,127)" result="base" />
-                        <feComposite in="base" in2="SourceAlpha" operator="in" result="flooded" />
-
-                        <!-- Displacement image placed in center -->
-                        <feImage href="disp_map.png" result="dispImage" x="256" y="256" width="512" height="512" preserveAspectRatio="none" />
-
-                        <feComposite in="dispImage" in2="flooded" operator="in" result="displacementMap" />
-
-                        <!-- Apply displacement -->
-                        <feDisplacementMap in="SourceGraphic" in2="displacementMap" scale="200" xChannelSelector="R" yChannelSelector="G" result="displaced" />
-
-                        <!-- Blur the displaced image -->
-                        <feGaussianBlur in="displaced" stdDeviation="4" result="blurredDisplaced" />
-
-                        <!-- Load blur mask -->
-                        <feImage href="disp_mask.png" x="256" y="256" width="512" height="512" result="mask" />
-
-                        <!-- Convert mask to alpha -->
-                        <feColorMatrix in="mask" type="luminanceToAlpha" result="alphaMask" />
-
-                        <!-- Mask the blurred displaced image -->
-                        <feComposite in="blurredDisplaced" in2="alphaMask" operator="in" result="blurOnly" />
-
-                        <!-- Composite blurred areas over displaced image -->
-                        <feComposite in="blurOnly" in2="displaced" operator="over" result="finalOutput" />
-
-                        <!-- Output -->
-                        <feComposite in="finalOutput" in2="SourceGraphic" operator="over" />
-
-                    </filter>
-
-
-
-
-                    <filter id="glass" x="0" y="0" width="1024" height="1024" color-interpolation-filters="sRGB">
-
-                        <!-- 1. Blur the original image -->
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blurred" />
-
-                        <!-- Base fill: neutral gray (no displacement) -->
-                        <feFlood flood-color="rgb(127,127,127)" result="base" />
-                        <feComposite in="base" in2="SourceAlpha" operator="in" result="flooded" />
-
-                        <!-- Your displacement image on top -->
-                        <feImage href="disp_map.png" result="dispImage" x="256" y="256" width="512" height="512" preserveAspectRatio="none" />
-                        <feComposite in="dispImage" in2="flooded" operator="over" result="displacementMap" />
-
-                        <feDisplacementMap
-                                in="blurred"
-                                in2="displacementMap"
-                                scale="200"
-                                xChannelSelector="R"
-                                yChannelSelector="G"
-                                result="blurredDisplaced"
-                        />
-
-                        <!-- W. Load blur mask -->
-                        <feImage href="disp_mask.png" x="256" y="256" width="512" height="512" result="mask" />
-
-                        <!-- X. Convert mask to alpha -->
-                        <feColorMatrix in="mask" type="luminanceToAlpha" result="alphaMask" />
-
-                        <!-- Y. Mask the blurred result -->
-                        <feComposite in="blurredDisplaced" in2="alphaMask" operator="in" result="blurredDisplacedMasked" />
-
-                        <!-- Z. Composite over the original image -->
-                        <feComposite in="blurredDisplacedMasked" in2="SourceGraphic" operator="over" />
-                    </filter>
-
-
-
-                    <filter id="glass2" x="0" y="0" width="512" height="512" color-interpolation-filters="sRGB">
-
-
-                        <!-- Base fill: neutral gray (no displacement) -->
-                        <feFlood flood-color="rgb(127,127,127)" result="base" />
-                        <feComposite in="base" in2="SourceAlpha" operator="in" result="flooded" />
-
-                        <!-- Your displacement image on top -->
-                        <feImage href="disp_map.png" result="dispImage" x="128" y="128" width="256" height="256" />
-                        <feComposite in="dispImage" in2="flooded" operator="over" result="displacementMap" />
-
-                        <feDisplacementMap
-                                in="SourceGraphic"
-                                in2="displacementMap"
-                                scale="300"
-                                xChannelSelector="R"
-                                yChannelSelector="G"
-                                result="displaced"
-                        />
-
-                        <!-- 1. Blur the original image -->
-                        <feGaussianBlur in="displaced" stdDeviation="1" result="displacedBlurred" />
-
-
-                        <!-- W. Load blur mask -->
-                        <feImage id="glass2Mask" href="disp_mask.png" x="128" y="128" width="256" height="256" result="mask" />
-
-                        <!-- X. Convert mask to alpha -->
-                        <feColorMatrix in="mask" type="luminanceToAlpha" result="alphaMask" />
-
-                        <!-- Y. Mask the blurred result -->
-                        <feComposite in="displacedBlurred" in2="alphaMask" operator="in" result="blurredDisplacedMasked" />
-
-                        <!-- Z. Composite over the original image -->
-                        <feComposite in="blurredDisplacedMasked" in2="SourceGraphic" operator="over" result="composite"/>
-
-                        <!-- W. Load shine image -->
-                        <feImage id="glassShine" href="glass_shine.png" x="128" y="128" width="256" height="256" result="shine" />
-
-                        <feBlend in="composite" in2="shine" mode="screen" />
-                    </filter>
-
-
-
-                </defs>
-            </svg>
-
-            <!-- Your main filtered image -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <div class="main-element about column">
+            <!--
+            <div class="carousel">
+                <span class="carousel-text">ABOUT ME</span>
+            </div>
+            -->
+            <div class="text column">
+                <p style="margin-top: -5.9px;">
+                    I am a computer science student at Aalto University, graduating with my
+                    Bachelor’s degree this spring. I specialize in combining my technical expertise
+                    with a user-centric perspective gained from my minor in Design. I have a passion
+                    for creating solutions that are visually aesthetic and technically reliable.
+                </p>
+                <p>
+                    Last year I gained practical experience in front-end development using React and
+                    TypeScript during Software Project 1 and 2 courses. I learned how to work
+                    effectively within a development team, utilizing Scrum, Git, and CI/CD practices
+                    in our workflow.
+                </p>
+                <p style="margin-bottom: -4.5px;">
+                    I enjoy learning new skills, technologies, and software, and I am quick to
+                    master new concepts. I find it rewarding to apply my existing knowledge to solve
+                    new and complex challenges.
+                </p>
+            </div>
         </div>
+
+
         <div class="footer row">
             <div class="footer-info column">
                 <h3>HISKI</h3>
@@ -248,7 +64,7 @@
             </div>
             <div class="footer-info column">
                 <p class="footer-text">
-                    On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by charms of pleasure of the moment.
+                    00200 Helsinki
                 </p>
             </div>
             <div class="footer-info column">
@@ -257,21 +73,25 @@
                 </p>
             </div>
         </div>
+
+
+
     </div>
 
 
 
 </body>
+
 <script>
 
 
 
     let u = document.querySelector('.main').offsetWidth / 64;
 
-    const title_1_1_1 = document.querySelector('#title-1-1-1');
-    const title_1_1_2 = document.querySelector('#title-1-1-2');
-    const title_1_2_1 = document.querySelector('#title-1-2-1');
-    const title_1_2_2 = document.querySelector('#title-1-2-2');
+    const title_1_1_1 = document.querySelector('#hero-f-name-1');
+    const title_1_1_2 = document.querySelector('#hero-s-name-1');
+    const title_1_2_1 = document.querySelector('#hero-f-name-2');
+    const title_1_2_2 = document.querySelector('#hero-s-name-2');
     const image = document.querySelector('#image');
     const blur_shape = document.querySelector('.blur-shape');
 
@@ -355,7 +175,8 @@
 
 </script>
 
-<svg width="1" height="1" class="blur-shape" xmlns="http://www.w3.org/2000/svg">
+
+<svg width="1" height="1" class="blur-shape" xmlns="http://www.w3.org/2000/svg" style="display: none">
     <defs>
         <filter id="directional-blur">
             <feGaussianBlur in="SourceGraphic" stdDeviation="8 0" />
