@@ -90,7 +90,6 @@ h1, h2, h3 {
 }
 
 p {
-    text-align: justify;
     margin: 0;
     font-size: 20px;
     font-family: "Plus Jakarta Sans";
@@ -132,7 +131,6 @@ p {
     display: flex;
     flex-direction: column;
 
-    /*border: mediumspringgreen 1px solid;*/
 }
 
 
@@ -146,7 +144,7 @@ p {
 
 }
 
-.h1 {
+h1 {
     font-size: calc(8 * var(--f));
     font-weight: 800;
 
@@ -158,7 +156,6 @@ p {
     overflow: visible;
     white-space: nowrap;
     user-select: none;
-    /*transition: color 1500ms cubic-bezier(.4, 0, .1, 1);*/
 
 }
 
@@ -175,17 +172,28 @@ h3 {
 }
 
 .paragraph {
-    text-align: justify;
     margin-left: calc(-0.023 * var(--u));
     font-size: 24px;
+}
+
+@media (max-width: 600px) {
+    p {
+        text-align: left;
+    }
+}
+
+@media (min-width: 600px) {
+    p {
+        text-align: justify;
+    }
 }
 
 .slide-in {
     transition: transform 4000ms cubic-bezier(.2,.55,0,1);
 }
 
-#hero-f-name-1 { transform: translateX(150vw); }
-#hero-s-name-1 { transform: translateX(180vw); }
+#f-name-1-r, #f-name-1-g, #f-name-1-b { transform: translateX(150vw); }
+#s-name-1-r, #s-name-1-g, #s-name-1-b { transform: translateX(180vw); }
 #hero-f-name-2 { transform: translateX(160vw); }
 #hero-s-name-2 { transform: translateX(170vw); }
 
@@ -206,7 +214,6 @@ img {
 #hero-row-1 {
     justify-content: flex-start;
     gap: calc(6 * var(--u));
-
 }
 
 #hero-row-2 {
@@ -215,6 +222,13 @@ img {
 
 }
 
+.h1-container {
+    justify-content: flex-start;
+    gap: calc(6 * var(--u));
+    position: relative;
+}
+
+
 
 .about {
     gap: calc(2*var(--u));
@@ -222,6 +236,7 @@ img {
     /* The first column (carousel) fits its aspect ratio, the second (text) takes the rest */
     grid-template-columns: auto 1fr;
     width: 100%;
+    margin: 0 0 calc(6*var(--u)) 0;
 }
 
 .carousel {
@@ -235,6 +250,34 @@ img {
 
     font-size: calc(6*var(--f));
     overflow: hidden;
+}
+
+#sale-demo {
+    width: 100%;
+}
+
+canvas {
+    width: 100%;
+}
+
+a:link {
+    color: #d1956b;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #d1956b;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #845431;
+    text-decoration: underline;
 }
 
 @keyframes scroll {

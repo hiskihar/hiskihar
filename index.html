@@ -16,61 +16,49 @@
 
 
     <div class="main column">
+
         <div id="hero">
             <div class="main-element row" id="hero-row-1">
                 <div class="image-container" id="image">
                     <img src="hiskihar.jpg" />
                 </div>
-                <h1 class="h1 slide-in" id="hero-f-name-1">HISKI</h1>
-                <h1 class="h1 slide-in" id="hero-s-name-1">HARKONEN</h1>
+                <div class="h1-container row">
+                    <h1 class="slide-in" id="f-name-1-g">HISKI</h1>
+                    <h1 class="slide-in" id="s-name-1-g">HARKONEN</h1>
+                </div>
             </div>
             <div class="main-element row" id="hero-row-2">
-                <h1 class="h1 slide-in" id="hero-f-name-2">HISKI</h1>
-                <h1 class="h1 slide-in" id="hero-s-name-2">HARKONEN</h1>
+                <h1 class="slide-in" id="hero-f-name-2">HISKI</h1>
+                <h1 class="slide-in" id="hero-s-name-2">HARKONEN</h1>
             </div>
         </div>
+
         <div class="main-element about column">
-            <!--
-            <div class="carousel">
-                <span class="carousel-text">ABOUT ME</span>
-            </div>
-            -->
             <div class="text column">
                 <p style="margin-top: -5.9px;">
-                    I am a computer science student at Aalto University, graduating with my
-                    Bachelor’s degree this spring. I specialize in combining my technical expertise
-                    with a user-centric perspective gained from my minor in Design. I have a passion
-                    for creating solutions that are visually aesthetic and technically reliable.
+                    I am a Computer Science student at Aalto University, graduating with my bachelor’s degree this spring. I specialize in combining my technical skills with a user-centric perspective that my minor in design has taught me. I have a passion for creating software that is visually aesthetic and experimental but technically reliable.
                 </p>
                 <p>
-                    Last year I gained practical experience in front-end development using React and
-                    TypeScript during Software Project 1 and 2 courses. I learned how to work
-                    effectively within a development team, utilizing Scrum, Git, and CI/CD practices
-                    in our workflow.
+                    Last year I gained practical experience working for a startup during Software Project courses where I focused mostly on front-end development. I learned how to work effectively within a development team, learning React and TypeScript and utilizing Scrum, Git, and CI/CD in our workflow.
+                </p>
+                <p>
+                    Through my university studies, I have also learned software engineering with object-oriented and functional programming with Java, Scala, and C. I have gained solid experience in computer graphics, simple shader programming and WebGL with Three.js from my own projects.
                 </p>
                 <p style="margin-bottom: -4.5px;">
-                    I enjoy learning new skills, technologies, and software, and I am quick to
-                    master new concepts. I find it rewarding to apply my existing knowledge to solve
-                    new and complex challenges.
+                    I am very motivated to learn new technologies, languages, and software and to evolve into a versatile developer. I find it rewarding to apply my existing knowledge to solve new challenges. I know how to use generative AI as part of my workflow to increase efficiency without compromising quality.
                 </p>
             </div>
         </div>
 
+        <div class="main-element" id="sale-demo">
+            <script type="module" src="sale-demo.js"></script>
+            <a href="https://hiskihar.github.io/Sale3D">Sale3D – Full game playable here</a>
+        </div>
 
         <div class="footer row">
             <div class="footer-info column">
                 <h3>HISKI</h3>
                 <h3>HARKONEN</h3>
-            </div>
-            <div class="footer-info column">
-                <p class="footer-text">
-                    00200 Helsinki
-                </p>
-            </div>
-            <div class="footer-info column">
-                <p class="footer-text">
-                    In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best.
-                </p>
             </div>
         </div>
 
@@ -88,10 +76,8 @@
 
     let u = document.querySelector('.main').offsetWidth / 64;
 
-    const title_1_1_1 = document.querySelector('#hero-f-name-1');
-    const title_1_1_2 = document.querySelector('#hero-s-name-1');
-    const title_1_2_1 = document.querySelector('#hero-f-name-2');
-    const title_1_2_2 = document.querySelector('#hero-s-name-2');
+    const h1s = document.getElementsByClassName('slide-in');
+
     const image = document.querySelector('#image');
     const blur_shape = document.querySelector('.blur-shape');
 
@@ -101,11 +87,12 @@
     };
 
     const updateTransforms = () => {
-        title_1_1_1.style.transform = `translateX(${-scrollY}px)`;
-        title_1_1_2.style.transform = `translateX(${-1.1*scrollY}px)`;
-        title_1_2_1.style.transform = `translateX(${-scrollY}px)`;
-        title_1_2_2.style.transform = `translateX(${-1.05*scrollY}px)`;
+        for (const el of h1s) {
+            el.style.transform = `translateX(${-scrollY}px)`;
+        }
     };
+
+
 
     const animateImage = () => {
         image.style.opacity = `1`;
@@ -132,46 +119,6 @@
         updateTransforms();
 
     });
-
-
-    const feImage1 = document.querySelector('#displacementFilter feImage');
-    const feImage2 = document.querySelector('#glass2 feImage');
-    const feImageMask2 = document.querySelector('#glass2 #glass2Mask');
-    const glassShine = document.querySelector('#glass2 #glassShine');
-
-    let phase = 0;
-
-    function animateBoth() {
-        const scale = 256 + 32 * Math.sin(((4 * Math.PI * phase) / 1024));
-        const pos = (512 - scale) / 2;
-
-        [feImage1, feImage2].forEach(fe => {
-            fe.setAttribute('width', scale);
-            fe.setAttribute('height', scale);
-            fe.setAttribute('x', pos);
-            fe.setAttribute('y', pos);
-        });
-
-        // Animate blur mask
-        feImageMask2.setAttribute('width', scale);
-        feImageMask2.setAttribute('height', scale);
-        feImageMask2.setAttribute('x', pos);
-        feImageMask2.setAttribute('y', pos);
-
-        glassShine.setAttribute('width', scale);
-        glassShine.setAttribute('height', scale);
-        glassShine.setAttribute('x', pos);
-        glassShine.setAttribute('y', pos);
-
-
-
-        requestAnimationFrame(animateBoth);
-
-        phase = (phase + 1) % 1024;
-    }
-    animateBoth();
-
-
 
 </script>
 
