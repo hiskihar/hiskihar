@@ -75,7 +75,7 @@ body {
     margin: 0;
     text-align: center;
     background-color: #000000;
-    color: #d1956b;
+    color: #ffffff;
     font-family: "Host Grotesk", sans-serif;
     padding: 0;
     overflow-y: visible;
@@ -245,7 +245,7 @@ img {
     width: calc(8*var(--u));
     flex: 0 0 auto;
     flex-direction: column;
-    background-color: #d1956b;
+    background-color: #ffffff;
     color: black;
 
     font-size: calc(6*var(--f));
@@ -261,12 +261,12 @@ canvas {
 }
 
 a:link {
-    color: #d1956b;
+    color: #ffffff;
     text-decoration: none;
 }
 
 a:visited {
-    color: #d1956b;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -328,7 +328,7 @@ a:active {
 
 .footer {
     margin-top: calc(6 * var(--u));
-    background-color: #d1956b;
+    background-color: #ffffff;
     color: black;
     /*background: var(--bg-grid);*/
     height: calc(12 * var(--u));
@@ -377,3 +377,4 @@ h2.subtractive.b {
     color: #00ffff;
     transform: translate(-51.5%, -50%);
 }
+
